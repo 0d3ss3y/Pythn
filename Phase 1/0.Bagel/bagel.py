@@ -1,20 +1,35 @@
+import platform
 import random
-from string import digits
-
+import os
 
 def main():
     heading()
     rules()
     number = generate_random_number()
     play_game(number)
+    continueGame()
 
+def continueGame():
+    ans = input("Would you like to play again? (y/n) ")[0].upper()
+    if ans == 'Y':
+        clear_screen()
+        main()
+    else:
+        print("Thank you for playing!")
+
+
+def clear_screen():
+    # Check the operating system
+    if platform.system() == "Windows":
+        os.system('cls')  # For Windows
+    else:
+        os.system('clear')
 
 def play_game(number):
     guesses = 0
     position = 0
     digits = 0
-    print(number)
-    while guesses <= 3:
+    while guesses < 10:
         guesses += 1
         print(f"Guess #{guesses}")
         guess = input("> ")
@@ -47,6 +62,8 @@ def play_game(number):
             position = 0
             digits = 0
 
+    else:
+        print("Sorry, you lost!")
 
 def generate_random_number():
     return random.randint(100, 999)
