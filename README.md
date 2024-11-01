@@ -16,8 +16,8 @@ Welcome to the **Python Projects Library**! This repository is a collection of P
 Each phase contains **5 projects** designed to help you learn and apply new skills. Click on a phase to view its specific projects.
 
 ### Phase 1: Beginner Projects
-1. **Calculator** - A basic calculator that supports addition, subtraction, multiplication, and division.
-2. **Guess the Number** - A simple number guessing game to practice loops and conditionals.
+1. **Bagel** - A simple number guessing game to practice loops and conditionals.
+2. **Birthday Paradox** - is a probability-based program
 3. **Basic To-Do List** - A command-line to-do list app with simple task management features.
 4. **Temperature Converter** - Convert temperatures between Celsius, Fahrenheit, and Kelvin.
 5. **Rock, Paper, Scissors Game** - Play the classic game with basic conditional logic.
