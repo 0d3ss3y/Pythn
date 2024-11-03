@@ -16,9 +16,9 @@ Welcome to the **Python Projects Library**! This repository is a collection of P
 Each phase contains **5 projects** designed to help you learn and apply new skills. Click on a phase to view its specific projects.
 
 ### Phase 1: Beginner Projects
-1. **Bagel** - A simple number guessing game to practice loops and conditionals.
-2. **Birthday Paradox** - is a probability-based program
-3. **Basic To-Do List** - A command-line to-do list app with simple task management features.
+1. **Bagel** - Deduce a secret 3-digit number based on clues
+2. **Birthday Paradox** - Determine the probability that 2 people share the same birthday in groups of different sizes
+3. **Bitmap Message** - Display a message on the screen configured by a 2D bitmap image
 4. **Temperature Converter** - Convert temperatures between Celsius, Fahrenheit, and Kelvin.
 5. **Rock, Paper, Scissors Game** - Play the classic game with basic conditional logic.
 
