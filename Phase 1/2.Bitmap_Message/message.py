@@ -5,32 +5,39 @@ def main():
     text = get_input()
 
     if text.isdigit():
-        run_image1()
+        run_image1(int(text))
     else:
-        run_image2()
+        run_image2(text)
 
 def heading():
     print("Bitmap Message")
 
 def get_input():
-    print("Enter the message to display with the bitmap.")
-    ans = input("> ")
+    while True:
+        print("Enter a text or number to create a bitmap message")
+        ans = input("> ").strip()
+        if ans:  # Check if input is not empty
+            return ans
+        else:
+            print("Input cannot be empty. Please try again.")
 
-    if ans == " ":
-        get_input()
-    return ans
+def run_image1(number):
+    try:
+        image = BitMap(number)
+        print(image.tostring())
+        image.set(1)
+        print(image.tostring())
+    except Exception as e:
+        print(f"Error creating bitmap with number: {e}")
 
-def run_image1():
-    image = BitMap(64)
-    print(image.tostring())
-    image.set(1)
-    print(image.tostring())
-
-def run_image2():
-    image = BitMap.fromstring("00011101")
-    print(image.tostring())
-    image.flip(1)
-    print(image.tostring())
+def run_image2(text):
+    try:
+        image = BitMap.fromstring(text)
+        print(image.tostring())
+        image.flip(1)
+        print(image.tostring())
+    except Exception as e:
+        print(f"Error creating bitmap from text: {e}")
 
 if __name__ == '__main__':
     main()
