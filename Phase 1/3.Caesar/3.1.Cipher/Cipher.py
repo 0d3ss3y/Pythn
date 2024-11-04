@@ -45,19 +45,29 @@ def get_text(opt):
     else:
         return message
 
-def encrypt(text, key):
+def encrypt(text, add):
     encrypted = ""
-    for letter in text:
-        if letter.isspace():
-            encrypted += letter
-        elif letter.isalpha():
-            letter_key = letter_dict.get(letter)
-            print(letter_key)
-            target_key = letter_key+key
-            print(target_key)
-            if target_key > 26:
-                letter_key_diff = 26 - letter_key
 
+    for letter in text:
+        if letter.isspace() or letter.isdigit() or letter == " ":
+            encrypted += letter
+        else:
+            origanl = letter_dict[letter]
+            print(origanl, letter)
+            target = origanl + add
+
+            if target > 26:
+                diff_target = target - 26
+
+                for idx,value in letter_dict.items():
+                    if value == diff_target:
+                        encrypted += idx
+            else:
+
+                for idx,value in letter_dict.items():
+                    if value == target:
+                        encrypted += idx
+    print(encrypted)
     return encrypted
 
 def decrypt(text, key):
