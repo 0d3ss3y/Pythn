@@ -9,9 +9,22 @@ def main():
     text = get_text(opt)
 
     if opt == 'e':
-        encrypt(text.upper(),key)
+        code = encrypt(text.upper(),key)
+        print(f"User encrypted message:\n{code}")
     else:
-        decrypt(text.upper(),key)
+        message = decrypt(text.upper(),key)
+        print(f"User decrypted message:\n{message}")
+
+    again()
+
+def again():
+    print("\nWanna continue [Y/N]")
+    answer = input("> ")[0].upper()
+
+    if answer == 'Y':
+        print()
+        return main()
+    print("Thank you for playing!")
 
 def heading():
     print("Caesar Cipher v1.0")
@@ -49,11 +62,10 @@ def encrypt(text, add):
     encrypted = ""
 
     for letter in text:
-        if letter.isspace() or letter.isdigit() or letter == " ":
+        if not letter.isalpha():
             encrypted += letter
         else:
             origanl = letter_dict[letter]
-            print(origanl, letter)
             target = origanl + add
 
             if target > 26:
@@ -67,11 +79,37 @@ def encrypt(text, add):
                 for idx,value in letter_dict.items():
                     if value == target:
                         encrypted += idx
-    print(encrypted)
     return encrypted
 
 def decrypt(text, key):
-    pass
+    decrypted = ""
+
+    for letter in text:
+        if not letter.isalpha():
+            decrypted += letter
+        else:
+            code = letter_dict[letter]
+            orginal = code - key
+
+            if orginal == 0:
+                diff_target = 26
+
+                for idx, value in letter_dict.items():
+                    if value == diff_target:
+                        decrypted += idx
+
+            elif orginal < 0:
+                diff_target = 26 + orginal
+
+                for idx, value in letter_dict.items():
+                    if value == diff_target:
+                        decrypted += idx
+            else:
+
+                for idx, value in letter_dict.items():
+                    if value == orginal:
+                        decrypted += idx
+    return decrypted
 
 if __name__ == '__main__':
     main()
